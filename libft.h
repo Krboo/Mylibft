@@ -6,7 +6,7 @@
 /*   By: pmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 15:07:17 by pmartine          #+#    #+#             */
-/*   Updated: 2015/12/03 15:52:10 by pmartine         ###   ########.fr       */
+/*   Updated: 2015/12/13 15:34:34 by pmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,5 @@ void				ft_lstaddback(t_list **alst, t_list *newl);
 char				*ft_tolowstr(char *str);
 char				*ft_touppstr(char *str);
 char				*ft_strrev(char *str);
+int					ft_clear_tab(char **tab);
 #endif
