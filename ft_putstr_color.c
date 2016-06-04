@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_color.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/01 22:30:50 by pmartine          #+#    #+#             */
-/*   Updated: 2016/01/30 19:00:44 by pmartine         ###   ########.fr       */
+/*   Created: 2016/06/02 05:31:19 by pmartine          #+#    #+#             */
+/*   Updated: 2016/06/04 05:31:01 by pmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	ft_putstr_color(char *s_color, char *s_print, char *s_stop)
 {
-	char	*str;
-	size_t	i;
-
-	i = 0;
-	if (!s || len > ft_strlen(s) || start > ft_strlen(s))
-		return (NULL);
-	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	while (start + i < start + len)
-	{
-		str[i] = s[start + i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	if (ft_strncmp(s_color, "\x1b[38;5;", 7) == 0)
+		ft_putstr(s_color);
+	else
+		return (ft_putstr(s_print));
+	ft_putstr(s_print);
+	return (ft_putstr(s_stop));
 }

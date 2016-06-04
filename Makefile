@@ -6,7 +6,7 @@
 #    By: pmartine <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 19:06:17 by pmartine          #+#    #+#              #
-#    Updated: 2015/12/13 15:33:20 by pmartine         ###   ########.fr        #
+#    Updated: 2016/06/02 05:34:26 by pmartine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,21 +24,23 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 	ft_putstr.c ft_putendl.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c \
 	ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c ft_lstdelone.c \
 	ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_isspace.c \
-	ft_lstaddback.c ft_tolowstr.c ft_touppstr.c ft_strrev.c ft_clear_tab.c
+	ft_lstaddback.c ft_tolowstr.c ft_touppstr.c ft_strrev.c ft_clear_tab.c \
+	ft_getnbr.c ft_putstr_color.c get_next_line.c
 
 FLAGS = -Wall -Werror -Wextra
 
 $(NAME):
-	gcc $(FLAGS) -c $(SRC)
-	ar -r $(NAME) *.o
-	ranlib $(NAME)
+	@gcc $(FLAGS) -c $(SRC) -I includes/
+	@ar -r $(NAME) *.o
+	@ranlib $(NAME)
+	@echo "libft compilated"
 
 all: $(NAME)
 
 clean:
-	rm -f *.o
+	@rm -f *.o
 
 fclean: clean
-	rm $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all

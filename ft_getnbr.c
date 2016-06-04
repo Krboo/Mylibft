@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_getnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmartine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/01 22:30:50 by pmartine          #+#    #+#             */
-/*   Updated: 2016/01/30 19:00:44 by pmartine         ###   ########.fr       */
+/*   Created: 2016/02/22 17:11:53 by pmartine          #+#    #+#             */
+/*   Updated: 2016/02/22 17:12:26 by pmartine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+int			ft_getnbr(char *str)
 {
-	char	*str;
-	size_t	i;
+	int		res;
 
-	i = 0;
-	if (!s || len > ft_strlen(s) || start > ft_strlen(s))
-		return (NULL);
-	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	while (start + i < start + len)
+	res = 0;
+	if (str != NULL && str[0] == '-')
 	{
-		str[i] = s[start + i];
-		i++;
+		return (-ft_getnbr(&str[1]));
 	}
-	str[i] = '\0';
-	return (str);
+	while ((*str >= '0') && (*str <= '9'))
+	{
+		res = (res * 10) + (*str - '0');
+		str++;
+	}
+	return (res);
 }
